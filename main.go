@@ -151,7 +151,7 @@ func promptForm() (err error) {
 	return form.Run()
 }
 
-// Setup git
+// Setup general git settings
 func setupGit() error {
 	err := exec.Command("git", "config", gitContext, "user.name", username).Run()
 	if err != nil {
