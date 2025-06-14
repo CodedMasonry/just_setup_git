@@ -168,6 +168,7 @@ func setupGit() error {
 	return nil
 }
 
+// Generates a default SSH key
 func generateSSH() error {
 	cmd := exec.Command("ssh-keygen", "-t", "ed25519", "-f", sshPath, "-C", email)
 	cmd.Stdin = os.Stdin
