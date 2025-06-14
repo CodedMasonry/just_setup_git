@@ -229,6 +229,7 @@ func setupSigning() error {
 	return nil
 }
 
+// Last information lines if ssh was set up
 func almostDone() error {
 	pub, err := os.ReadFile(sshPath + ".pub")
 	if err != nil {
