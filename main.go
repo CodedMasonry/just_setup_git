@@ -220,6 +220,12 @@ func setupSigning() error {
 	}
 	success("Successfully set git signing key")
 
+	err = exec.Command("git", "config", gitContext, "commit.gpgsign", "true").Run()
+	if err != nil {
+		return err
+	}
+	success("Successfully set git to sign commits by default")
+
 	return nil
 }
 
