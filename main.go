@@ -235,11 +235,6 @@ func almostDone() error {
 		return err
 	}
 
-	suggestedAgentCommands, err := exec.Command("ssh-agent").Output()
-	if err != nil {
-		return err
-	}
-
 	lines := []string{
 		infoColor.Render("\nAlmost Done!"),
 		"If you're using github, navigate to `https://github.com/settings/keys` and press `New SSH key`",
@@ -249,7 +244,7 @@ func almostDone() error {
 		"Key:",
 		infoColor.Render(string(pub)),
 		"\nIf you setup SSH, to avoid re-typing ssh key to push, it is recommended to add `ssh-agent` to your command line settings",
-		infoColor.Render(string(suggestedAgentCommands)),
+		infoColor.Render("eval \"$(ssh-agent -s)\""),
 	}
 	for _, line := range lines {
 		fmt.Println(line)
